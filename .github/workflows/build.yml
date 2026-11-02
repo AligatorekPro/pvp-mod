@@ -7,6 +7,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Poukladaj pliki
+        run: |
+          D=src/main/java/dev/alek/pinktools
+          mkdir -p $D/mixin src/main/resources/assets/pinktools/lang
+          for f in Config HitHighlight PinkToolsClient PinkToolsScreen TrajectoryRenderer; do
+            if [ -f $f.java ]; then mv $f.java $D/; fi
+          done
+          for f in EntityMixin MinecraftClientMixin PlayerEntityMixin; do
+            if [ -f $f.java ]; then mv $f.java $D/mixin/; fi
+          done
+          if [ -f en_us.json ]; then mv en_us.json src/main/resources/assets/pinktools/lang/; fi
+          if [ -f fabric.mod.json ]; then mv fabric.mod.json src/main/resources/; fi
+          if [ -f pinktools.mixins.json ]; then mv pinktools.mixins.json src/main/resources/; fi
+          find . -path ./.git -prune -o -type f -print
       - uses: actions/setup-java@v4
         with:
           distribution: temurin
@@ -19,4 +33,3 @@ jobs:
         with:
           name: pinktools
           path: build/libs/*.jar
-          
