@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "id": "pinktools",
+  "version": "1.0.0",
+  "name": "PinkTools",
+  "description": "Podświetlane nicki, trajektorie, hit highlight i fastplace w jednym modzie.",
+  "authors": ["Alek"],
+  "license": "MIT",
+  "environment": "client",
+  "entrypoints": {
+    "client": ["dev.alek.pinktools.PinkToolsClient"]
+  },
+  "mixins": ["pinktools.mixins.json"],
+  "depends": {
+    "fabricloader": ">=0.16.9",
+    "minecraft": "~1.21.4",
+    "java": ">=21",
+    "fabric-api": "*"
+  }
+}

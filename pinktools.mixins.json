@@ -1,0 +1,13 @@
+{
+  "required": true,
+  "package": "dev.alek.pinktools.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "client": [
+    "EntityMixin",
+    "PlayerEntityMixin",
+    "MinecraftClientMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
